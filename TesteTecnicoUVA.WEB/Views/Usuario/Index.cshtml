@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TesteTecnicoUVA.WEB.Models.ViewModel.UsuarioViewModel>
+
+@{
+    ViewBag.Title = "Todos os usuários";
+}
+
+<br />
+<div>
+    @*<div class="float-left align-middle">
+        <h2>Index</h2>
+    </div>*@
+
+    <div class="float-right align-text-bottom">
+        @Html.ActionLink("Novo usuário", "Create", null, new { @class="btn btn-primary" })
+    </div>
+</div>
+
+
+
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefoneCelular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCriacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var usuario in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.NomeCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.TelefoneCelular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.DataCriacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => usuario.Ativo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = usuario.Id }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = usuario.Id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = usuario.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Deseja realmente deletar este usuário? Esta ação não poderá ser desfeita!');" })
+            </td>
+        </tr>
+    }
+
+</table>
